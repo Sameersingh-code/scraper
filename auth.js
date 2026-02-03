@@ -6,15 +6,14 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: "https://sydney-events-6roy.onrender.com/auth/google/callback"
     },
     (accessToken, refreshToken, profile, done) => {
-      // Minimal user object
       const user = {
         id: profile.id,
         name: profile.displayName,
         email: profile.emails[0].value,
-        photo: profile.photos[0].value,
+        photo: profile.photos[0].value
       };
       return done(null, user);
     }
